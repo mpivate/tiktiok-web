@@ -30,6 +30,8 @@ import { useState } from 'react';
 import AccountItem from '../../../AccountItem';
 import Menu from '~/components/Popper/Menu';
 import 'tippy.js/dist/tippy.css';
+import { UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -125,7 +127,6 @@ function Header() {
                                 <FontAwesomeIcon icon={faCircleXmark} />
                             </button>
                         </div>
-                        <span></span>
 
                         <button className={cx('search-btn')}>
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
@@ -138,7 +139,7 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content="Tải lên" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload}></FontAwesomeIcon>
+                                    <UploadIcon></UploadIcon>
                                 </button>
                             </Tippy>
                         </>
@@ -152,7 +153,7 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/4b85df94ddbc913a995d4d721e417580.jpeg?lk3s=a5d48078&x-expires=1708873200&x-signature=vCmwDk3hoSm5vUDMAvTFjoWvjdg%3D"
                                 className={cx('user-avatar')}
                                 alt="Minh"
