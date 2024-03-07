@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import styles from './Header.module.scss';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
 import images from '~/assets/image';
 import Button from '~/components/Button';
 
@@ -24,14 +23,12 @@ import {
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
-import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
-import { useState } from 'react';
-import AccountItem from '../../../AccountItem';
 import Menu from '~/components/Popper/Menu';
 import 'tippy.js/dist/tippy.css';
-import { UploadIcon } from '~/components/Icons';
+import { UploadIcon, InboxIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
+import Search from '../Search';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -64,8 +61,6 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-    const [searchResults, setSearchResults] = useState([]);
-
     const handleMenuChange = (menuItem) => console.log(menuItem);
 
     const currentUser = true;
@@ -101,38 +96,8 @@ function Header() {
                 <div className={cx('logo')}>
                     <img src={images.logo} alt="TikTok img" />
                 </div>
-                <HeadlessTippy
-                    interactive
-                    placement="bottom-end"
-                    visible={searchResults.length > 0}
-                    render={(attrs) => (
-                        <div className={cx('search-results')} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>
-                                <h4 className={cx('search-title')}>Accounts</h4>
-                                <AccountItem></AccountItem>
-                                <AccountItem></AccountItem>
-                                <AccountItem></AccountItem>
-                                <AccountItem></AccountItem>
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input placeholder="Tìm kiếm" spellCheck={false} />
-                        <div className={cx('button-container')}>
-                            <button className={cx('loading-btn')}>
-                                <FontAwesomeIcon icon={faSpinner} />
-                            </button>
-                            <button className={cx('clear-btn')}>
-                                <FontAwesomeIcon icon={faCircleXmark} />
-                            </button>
-                        </div>
 
-                        <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
-                        </button>
-                    </div>
-                </HeadlessTippy>
+                <Search />
 
                 <div className={cx('actions')}>
                     {currentUser ? (
@@ -140,6 +105,17 @@ function Header() {
                             <Tippy delay={[0, 200]} content="Tải lên" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <UploadIcon></UploadIcon>
+                                </button>
+                            </Tippy>
+                            <Tippy delay={[0, 50]} content="Message" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <MessageIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <InboxIcon />
+                                    <span className={cx('badge')}>12</span>
                                 </button>
                             </Tippy>
                         </>
