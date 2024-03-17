@@ -10,7 +10,7 @@ import { useState } from 'react';
 const cx = classNames.bind(styles);
 const defaultFn = () => {};
 
-function Menu({ children, items = [], onChange = defaultFn }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn }) {
     const [history, setHistoy] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -37,6 +37,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
         <Tippy
             interactive
             placement="bottom-end"
+            hideOnClick={hideOnClick}
             delay={[0, 500]}
             offset={[10, 10]}
             render={(attrs) => (
@@ -50,7 +51,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
                                 }}
                             ></Header>
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}

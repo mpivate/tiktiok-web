@@ -1,29 +1,25 @@
-/* eslint-disable no-unused-vars */
-import styles from './Header.module.scss';
-import images from '~/assets/image';
-import Button from '~/components/Button';
-
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
-    faCircleXmark,
-    faCloudUpload,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
     faGear,
     faKeyboard,
-    faMagnifyingGlass,
-    faMessage,
     faPlus,
-    faSign,
     faSignOut,
-    faSpinner,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+
+import routesCofig from '~/config/routes';
+/* eslint-disable no-unused-vars */
+import styles from './Header.module.scss';
+import images from '~/assets/image';
+import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import 'tippy.js/dist/tippy.css';
 import { UploadIcon, InboxIcon, MessageIcon } from '~/components/Icons';
@@ -69,7 +65,7 @@ function Header() {
         {
             icon: <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>,
             title: 'Xem hồ sơ',
-            to: '/@minhh',
+            to: '/@hoaa',
         },
         {
             icon: <FontAwesomeIcon icon={faCoins}></FontAwesomeIcon>,
@@ -93,12 +89,13 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
-                    <img src={images.logo} alt="TikTok img" />
-                </div>
+                <Link to={routesCofig.home}>
+                    <div className={cx('logo')}>
+                        <img src={images.logo} alt="TikTok img" />
+                    </div>
+                </Link>
 
                 <Search />
-
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>

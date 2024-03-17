@@ -12,6 +12,9 @@
 
 .menu-popper {
     padding-bottom: 8px;
+    max-height: min((100vh - 96px) - 60px, 760px);
+    display: flex;
+    flex-direction: column;
 }
 
 .menu-body {
@@ -42,6 +45,7 @@
     flex-shrink: 0;
     height: 50px;
     margin-top: -8px;
+    flex-shrink: 0;
 }
 
 .back-btn {
