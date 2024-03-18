@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
-import routesCofig from '~/config/routes';
+import config from '~/config';
 /* eslint-disable no-unused-vars */
 import styles from './Header.module.scss';
 import images from '~/assets/image';
@@ -89,7 +89,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesCofig.home}>
+                <Link to={config.routes.home}>
                     <div className={cx('logo')}>
                         <img src={images.logo} alt="TikTok img" />
                     </div>
