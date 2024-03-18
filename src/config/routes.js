@@ -1,7 +1,7 @@
 const routes = {
     home: '/',
     following: '/following',
-    nickname: '/:nickname',
+    profile: '/:nickname',
     upload: '/upload',
     search: '/search',
 };

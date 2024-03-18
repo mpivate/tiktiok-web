@@ -19,6 +19,8 @@ const publicRoutes = [
     { path: config.routes.search, component: Search, layout: null },
 ];
 
+console.log(config.routes);
+
 const privateRoutes = [];
 
 export { publicRoutes, privateRoutes };
