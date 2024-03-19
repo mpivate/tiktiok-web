@@ -18,8 +18,6 @@ function App() {
                             Layout = Fragment;
                         }
 
-                        console.log(route.path);
-
                         return (
                             <Route
                                 key={index}
