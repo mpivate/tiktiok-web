@@ -2,7 +2,7 @@
 .search-results {
     width: 500px;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 12px;
+    // box-shadow: rgba(79, 79, 79, 0.12) 0px 2px 12px;
     background-color: var(--white);
 }
 
@@ -11,7 +11,8 @@
     display: flex;
     align-items: center;
     height: 46px;
-    background: rgba(22, 24, 35, 0.06);
+    margin-right: 83px;
+    background: #f1f1f2;
     border-radius: 92px;
     padding: 12px 0px;
     padding-left: 16px;
@@ -22,6 +23,7 @@
         background: transparent;
         line-height: 21px;
         font-family: var(--font-family);
+        padding-right: 40px;
         width: 100%;
         color: var(--black);
         caret-color: var(--primary);

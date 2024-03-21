@@ -22,7 +22,7 @@ import images from '~/assets/image';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import 'tippy.js/dist/tippy.css';
-import { UploadIcon, InboxIcon, MessageIcon } from '~/components/Icons/Icons';
+import { UploadIcon, InboxIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
 
